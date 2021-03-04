@@ -8,7 +8,14 @@
         >
           Заказать
         </button>
-        <span>type: js onload</span>
+        <span
+          >type:
+          <select id="select">
+            <option value="/index-js-onload.html">window onload</option>
+            <option value="/index.html">meta refresh</option>
+            <option value="/index-js-body.html">body onload</option>
+          </select></span
+        >
         | status:
         <span id="status">???</span>
       </div>
@@ -21,6 +28,7 @@
   const iframeEl = document.getElementById('iframe');
   const statusEl = document.getElementById('status');
   const buttonEl = document.getElementById('button');
+  const selectEl = document.getElementById('select');
 
   buttonEl.onclick = () => {
     iframeEl.src = '';
@@ -40,5 +48,9 @@
           };
         }, 1500);
       });
+  };
+
+  selectEl.onchange = (e) => {
+    window.location.href = e.target.value;
   };
 </script>
