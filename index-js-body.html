@@ -8,7 +8,7 @@
         >
           Заказать
         </button>
-        <span>type: meta refresh</span>
+        <span>type: js body</span>
         | status:
         <span id="status">???</span>
       </div>
@@ -26,7 +26,7 @@
     iframeEl.src = '';
     statusEl.textContent = 'Fake XHR loading...';
 
-    fetch('/api.json')
+    fetch('/api-js-body.json')
       .then((res) => res.json())
       .then((body) => {
         statusEl.textContent = 'Additional timeout (1.5s)...';
