@@ -1,0 +1,12 @@
+{
+  "id": { "hash": "b2d66c09380630919bb69f399f34588b5e65e1c9" },
+  "reference": {
+    "acquirer": 1,
+    "terminal": 3,
+    "urls": {
+      "offer": "https://money.mail.ru/oferta/payfast",
+      "redirect": "/payform.html",
+      "return": "https://www.delivery-club.ru/success-order-page/"
+    }
+  }
+}

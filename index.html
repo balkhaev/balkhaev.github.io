@@ -9,13 +9,13 @@
 
   statusEl.textContent = 'Fake XHR loading...';
 
-  fetch('https://google.com/').then(() => {
+  fetch('/api.json').then((res) => {
     statusEl.textContent = 'Additional timeout...';
 
     setTimeout(() => {
       statusEl.textContent = 'Loading payform...';
 
-      iframeEl.src = '/payform.html';
+      iframeEl.src = res.reference.urls.redirect;
       iframeEl.onload = () => {
         statusEl.textContent = 'Payform loaded';
       };
