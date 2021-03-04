@@ -1,26 +1,30 @@
 <html>
-  <div>Status: <span id="status">???</span></div>
+  <div><button id="button">try</button> Status: <span id="status">???</span></div>
   <iframe id="iframe" style="height: 100%; width: 100%" class="payform__iframe"></iframe>
 </html>
 
 <script>
   const iframeEl = document.getElementById('iframe');
   const statusEl = document.getElementById('status');
+  const buttonEl = document.getElementById('button');
 
-  statusEl.textContent = 'Fake XHR loading...';
+  buttonEl.onclick = () => {
+    iframeEl.src = '';
+    statusEl.textContent = 'Fake XHR loading...';
 
-  fetch('/api.json')
-    .then((res) => res.json())
-    .then((body) => {
-      statusEl.textContent = 'Additional timeout...';
+    fetch('/api.json')
+      .then((res) => res.json())
+      .then((body) => {
+        statusEl.textContent = 'Additional timeout...';
 
-      setTimeout(() => {
-        statusEl.textContent = 'Loading payform...';
+        setTimeout(() => {
+          statusEl.textContent = 'Loading payform...';
 
-        iframeEl.src = body.reference.urls.redirect;
-        iframeEl.onload = () => {
-          statusEl.textContent = 'Payform loaded';
-        };
-      }, 800);
-    });
+          iframeEl.src = body.reference.urls.redirect;
+          iframeEl.onload = () => {
+            statusEl.textContent = 'Payform loaded';
+          };
+        }, 800);
+      });
+  };
 </script>
