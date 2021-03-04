@@ -9,13 +9,16 @@
 
   statusEl.textContent = 'Fake XHR loading...';
 
-  setTimeout(() => {
-    statusEl.textContent = 'Loading payform...';
+  fetch('https://google.com/').then(() => {
+    statusEl.textContent = 'Additional timeout...';
 
-    iframeEl.onload = () => {
-      statusEl.textContent = 'Payform loaded...';
-    };
+    setTimeout(() => {
+      statusEl.textContent = 'Loading payform...';
 
-    iframeEl.src = '/payform.html';
-  }, 1500);
+      iframeEl.src = '/payform.html';
+      iframeEl.onload = () => {
+        statusEl.textContent = 'Payform loaded';
+      };
+    }, 800);
+  });
 </script>
