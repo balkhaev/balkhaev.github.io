@@ -8,7 +8,9 @@
     "build": "parcel build src/index.html",
     "deploy": "parcel build src/index.html && git push origin :gh-pages && git subtree push --prefix dist origin gh-pages"
   },
-  "keywords": ["homepage"],
+  "keywords": [
+    "homepage"
+  ],
   "author": "Balkhaev",
   "license": "ISC",
   "devDependencies": {
