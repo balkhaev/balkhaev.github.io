@@ -15,7 +15,7 @@
     fetch('/api.json')
       .then((res) => res.json())
       .then((body) => {
-        statusEl.textContent = 'Additional timeout...';
+        statusEl.textContent = 'Additional timeout (1.5s)...';
 
         setTimeout(() => {
           statusEl.textContent = 'Loading payform...';
@@ -24,7 +24,7 @@
           iframeEl.onload = () => {
             statusEl.textContent = 'Payform loaded';
           };
-        }, 800);
+        }, 1500);
       });
   };
 </script>
