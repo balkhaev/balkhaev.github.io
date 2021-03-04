@@ -1,3 +1,21 @@
 <html>
-  <iframe style="height: 100%; width: 100%" src="/payform.html" class="payform__iframe"></iframe>
+  <div>Status: <span id="status"></span></div>
+  <iframe id="iframe" style="height: 100%; width: 100%" class="payform__iframe"></iframe>
 </html>
+
+<script>
+  const iframeEl = document.getElementById('iframe');
+  const statusEl = document.getElementById('status');
+
+  statusEl.textContent = 'Fake XHR loading...';
+
+  setTimeout(() => {
+    statusEl.textContent = 'Loading payform...';
+
+    iframeEl.onload = () => {
+      statusEl.textContent = 'Payform loaded...';
+    };
+
+    iframeEl.src = '/payform.html';
+  }, 1500);
+</script>
